@@ -30,7 +30,7 @@ System.out.println(myStringArray);
 			String emailID= "";
 			String bloodGroup= "";
 			String homeTown= "";
-			String maritalStatus= "";
+			String maritalStatus= "smit";
 
 			String userID= "";
 			String phoneNumber= "";
