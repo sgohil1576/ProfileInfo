@@ -23,7 +23,7 @@ public class Registration {
 {
 System.out.println(myStringArray);
 }
-			String firstName = "";
+			String firstName = "Jai";
 			String middleName= "";
 			String lastName= "";
 			String address= "";
