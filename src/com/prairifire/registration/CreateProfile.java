@@ -1,53 +1,20 @@
 package com.prairifire.registration;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+import java.io.*;
 
-public class Registration {
+public class CreateProfile {
 
 	public static void main(String[] args) throws IOException {
-
-		profile();
-	}
-	 public static void profile() throws IOException {
-		Scanner registration = new 	Scanner(System.in); 
-
-		int choice;
-
-        int create = 1;
-        int updateAProfile = 2;
-        int deleteAProfile = 3;
-
-        System.out.println("Registration of members:");
-        System.out.println("1. Create Profile");
-        System.out.println("2. Update Profile");
-        System.out.println("3. Delete Profile");
-
-        choice = registration.nextInt();
-
-        if (choice == 1) {
-            choice = create;
-        } else if (choice == 2) {
-            choice = updateAProfile;
-        } else if (choice == 3) {
-            choice = deleteAProfile;
-        } else if (choice > 3 || choice < 1) {
-            System.out.println("Try again.");
-            choice = -1;
-            profile();
-        }
-        Registration createAProfile = new Registration();
-        createAProfile.create();
-        
-    
-}
-	private void create() throws IOException {
 		
-Scanner scan = new Scanner(System.in);
+		create();
+	}
+		public static void create() throws IOException {
+		Scanner scan = new Scanner(System.in);
 		
 	    
 		String[] myStringArray;
@@ -141,7 +108,13 @@ Scanner scan = new Scanner(System.in);
 
 		System.out.println("Registration successfull");
 	    }
+		
+
+	private static String getInput() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-
 	
+}
+
