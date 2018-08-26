@@ -1,19 +1,24 @@
 package com.prairifire.registration;
 
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.io.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class CreateProfile {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, SQLException {
 		
 		create();
 	}
-		public static void create() throws IOException {
+		public static void create() throws IOException, SQLException {
 		Scanner scan = new Scanner(System.in);
 		
 	    
@@ -105,14 +110,45 @@ public class CreateProfile {
 		PrintWriter out = new PrintWriter(new FileWriter("ProfileInfo.txt"));
 	 	out.println(Arrays.asList(map));
 	 	out.close();
+	 	
+	 	String sql = "INSERT INTO registration (userID, firstName, middleName, lastName, address, phoneNumber, emailID, zipCode, birthDate, height, weight, bloodGroup, homeTown, maritalStatus)"
+	 	+ "VALUES ('userID', 'firstName', 'middleName', 'lastName', 'address', 'phoneNumber', 'emailID', 'zipCode', 'birthDate', 'height', 'weight', 'bloodGroup', 'homeTown', 'maritalStatus')";
+	 	
+	 	Connection conn = null;
+		PreparedStatement stmt = conn.prepareStatement(sql);
+	 
+	 	stmt.setString(1, userID);
+	 	stmt.setString(2, firstName);
+	 	stmt.setString(3, middleName);
+	 	stmt.setString(4, lastName);
+	 	stmt.setString(5, address);
+	 	stmt.setString(6, phoneNumber);
+	 	stmt.setString(7, emailID);
+	 	stmt.setString(8, zipCode);
+	 	stmt.setString(9, birthDate);
+	 	stmt.setString(10, height);
+	 	stmt.setString(11, weight);
+	 	stmt.setString(12, bloodGroup);
+	 	stmt.setString(13, homeTown);
+	 	stmt.setString(14, maritalStatus);
 
-		System.out.println("Registration successfull");
+	 	int count = stmt.executeUpdate(sql);
+	 	System.out.println("Number of rows updated in database =  " + count);
+ 	
+	 	//Query
+		
+	 	System.out.println("Registration successfull");
 	    }
 		
 
-	private static String getInput() {
-		// TODO Auto-generated method stub
+	private static String getInput() throws IOException {
+		 String input = getInput();
+         BufferedWriter writer = new BufferedWriter(new FileWriter(new File("ProfileInfo")));
+         writer.write(input,0,input.length());
+         writer.close();
+    
 		return null;
+		
 	}
 
 	
